@@ -1,12 +1,16 @@
 # Maze generator and solver
 
-Java maze generator and solver based on Graph ADTs.
+CS 253-01 Fall 2020 final project developed with Abigail Fenerty:
+Java maze generator and solver based on Graph ADTs, featuring DFS.
 
-TODO:
+## TODO
+
 * [x] Node ADT
 * [x] LinkedList ADT
-* [ ] Stack ADT
+* [x] Stack ADT
 * [ ] Graph ADT (AdjacencyList array)
 * [ ] main driver methods
+* [ ] maze generator
 * [ ] recursive backtracker
 * [ ] documentation
+
