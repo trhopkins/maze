@@ -1,5 +1,15 @@
+/* Stack methods */
+interface StackInterface {
+    public void push(int key);
+    public int pop();
+    public int ontop();
+    public int size();
+    public boolean empty();
+    public void traverse();
+}
+
 /* Stack ADT */
-class Stack {
+class Stack implements StackInterface {
     private Node top;
     private int size;
 

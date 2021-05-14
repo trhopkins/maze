@@ -1,5 +1,15 @@
+/* LinkedList methods */
+interface LinkedListInterface {
+    public void insert(int key);
+    public void delete(int key);
+    public int size();
+    public boolean empty();
+    public boolean search(int key);
+    public int[] getKeys();
+    public void traverse();
+
 /* LinkedList ADT */
-public class LinkedList {
+public class LinkedList implements LinkedListInterface {
     private Node head;
 
     /* constructor */
@@ -11,6 +21,27 @@ public class LinkedList {
     public void insert(int key) {
         Node newHead = new Node(key, head);
         head = newHead;
+    }
+
+    /* delete Node */
+    public void delete(int key) {
+        Node tmp = head;
+        Node prev = null;
+        if (tmp == null) {
+            return; // if empty, exit
+        }
+        if (tmp != null && tmp.getKey() == key) {
+            head = tmp.getNext(); // head matches key, no prev
+            return;
+        }
+        while (tmp != null && tmp.getKey() != key) {
+            prev = tmp;
+            tmp = tmp.getNext();
+        }
+        if (tmp == null) {
+            return; // not found. Return error?
+        }
+        prev.setNext(tmp.getNext()); // update previous Node's next
     }
 
     /* return total number of Nodes */
@@ -43,25 +74,15 @@ public class LinkedList {
         return false; // not found
     }
 
-    /* delete Node */
-    public void delete(int key) {
+    /* return array of keys */
+    public int[] getKeys() {
+        int[] keys = new int[this.size()];
         Node tmp = head;
-        Node prev = null;
-        if (tmp == null) {
-            return; // if empty, exit
-        }
-        if (tmp != null && tmp.getKey() == key) {
-            head = tmp.getNext(); // head matches key, no prev
-            return;
-        }
-        while (tmp != null && tmp.getKey() != key) {
-            prev = tmp;
+        for (int i=0; i<keys.length; i++) {
+            keys[i] = tmp.getKey();
             tmp = tmp.getNext();
         }
-        if (tmp == null) {
-            return; // not found. Return error?
-        }
-        prev.setNext(tmp.getNext()); // update previous Node's next
+        return keys;
     }
 
     /* print all Nodes */
@@ -72,16 +93,5 @@ public class LinkedList {
             tmp = tmp.getNext();
         }
         //System.out.println();
-    }
-
-    /* return array of keys */
-    public int[] getKeys() {
-        int[] keys = new int[this.size()];
-        Node tmp = head;
-        for (int i=0; i<keys.length; i++) {
-            keys[i] = tmp.getKey();
-            tmp = tmp.getNext();
-        }
-        return keys;
     }
 }

@@ -1,5 +1,12 @@
+/* Node methods */
+interface NodeInterface {
+    public int getKey();
+    public Node getNext();
+    public void setNext(Node next);
+}
+
 /* Node ADT */
-class Node { // make a Node interface to start this file?
+class Node implements NodeInterface {
     private int key;
     private Node next;
 
