@@ -1,60 +1,55 @@
-/* Stack methods */
 interface StackInterface {
-    public void push(int key);
-    public int pop();
-    public int ontop();
-    public int size();
-    public boolean empty();
-    public void traverse();
+	public void push(int key); // insert a Node on top 
+	public int pop();
+	public int ontop();
+	public int size();
+	public boolean empty();
+	public void traverse();
 }
 
-/* Stack ADT */
 class Stack implements StackInterface {
-    private Node top;
-    private int size;
+	private Node top;
+	private int size;
 
-    /* constructor */
-    public Stack() {
-        size = 0;
-        top = null;
-    }
+	/* constructor */
+	public Stack() {
+		top = null;
+		size = 0;
+	}
 
-    /* add a new Node atop Stack */
-    public void push(int key) {
-        Node newNode = new Node(key, top);
-        top = newNode;
-        size++;
-    }
+	/* add a new Node to the top of the Stack */
+	public void push(int key) {
+		Node newNode = new Node(key, top);
+		top = newNode;
+		size++;
+	}
 
-    /* remove the top Node and return its key */
-    public int pop() {
-        int i = top.getKey();
-        top = top.getNext();
-        size--;
-        return i;
-    }
+	/* return the key of the top Node and remove it */
+	public int pop() {
+		int i = top.getKey();
+		top = top.getNext();
+		size--;
+		return i;
+	}
 
-    /* return the top Node without removing it */
-    public int ontop() {
-        return top.getKey();
-    }
+	/* return the key of the top Node without removing it */
+	public int ontop() {
+		return top.getKey();
+	}
 
-    /* return the number of Nodes */
-    public int size() {
-        return size;
-    }
+	/* return number of Nodes */
+	public int size() {
+		return size;
+	}
 
-    /* return true if empty */
-    public boolean empty() {
-        //return (size == 0);
-        return (top == null);
-    }
+	/* return true if empty */
+	public boolean empty() {
+		return (top == null);
+	}
 
-    /* print all Nodes. Beware, empties Stack */
-    public void traverse() {
-        while (!this.empty()) {
-            System.out.print(this.pop() + ' ');
-        }
-        //System.out.println();
-    }
+	public void traverse() { // empties stack, beware
+		while (!this.empty()) {
+			System.out.println(this.pop());
+		}
+	}
 }
