@@ -1,10 +1,10 @@
 interface StackInterface {
-	public void push(int key); // insert a Node on top 
-	public int pop();
-	public int ontop();
-	public int size();
-	public boolean empty();
-	public void traverse();
+	public void push(int key); // insert Node on top of Stack
+	public int pop(); // return key of top Node and remove it
+	public int ontop(); // return key of top Node without removing it
+	public int size(); // return number of Nodes
+	public boolean empty(); // return number of Nodes
+	public void traverse(); // show all Nodes and empty Stack
 }
 
 class Stack implements StackInterface {
@@ -17,14 +17,14 @@ class Stack implements StackInterface {
 		size = 0;
 	}
 
-	/* add a new Node to the top of the Stack */
+	/* insert Node on top of Stack */
 	public void push(int key) {
 		Node newNode = new Node(key, top);
 		top = newNode;
 		size++;
 	}
 
-	/* return the key of the top Node and remove it */
+	/* return key of top Node and remove it */
 	public int pop() {
 		int i = top.getKey();
 		top = top.getNext();
@@ -32,7 +32,7 @@ class Stack implements StackInterface {
 		return i;
 	}
 
-	/* return the key of the top Node without removing it */
+	/* return key of top Node without removing it */
 	public int ontop() {
 		return top.getKey();
 	}
@@ -47,7 +47,8 @@ class Stack implements StackInterface {
 		return (top == null);
 	}
 
-	public void traverse() { // empties stack, beware
+    /* show all Nodes and empty Stack */
+	public void traverse() {
 		while (!this.empty()) {
 			System.out.println(this.pop());
 		}

@@ -1,8 +1,8 @@
 /* Node methods */
 interface NodeInterface {
-	public int getKey();
-	public Node getNext();
-	public void setNext(Node next);
+	public int getKey(); // return key
+	public Node getNext(); // return next Node
+	public void setNext(Node next); // set next Node
 }
 
 /* Node ADT */
@@ -21,12 +21,12 @@ class Node implements NodeInterface {
 		return key;
 	}
 
-	/* return next Node in AdjacencyList */
+	/* return next Node */
 	public Node getNext() {
 		return next;
 	}
 
-	/* set next Node in AdjacencyList */
+	/* set next Node */
 	public void setNext(Node next) {
 		this.next = next;
 	}
