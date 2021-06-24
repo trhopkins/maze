@@ -1,6 +1,6 @@
 import java.util.Random;
 
-interface Graph { // TODO: reorganize
+interface GraphInterface { // TODO: reorganize
     public void insert(int v1, int v2);
     public void delete(int v1, int v2);
     public int size();
@@ -9,7 +9,7 @@ interface Graph { // TODO: reorganize
     public int numNodes();
 }
 
-public class Graph {
+public class Graph implements GraphInterface {
 	private int width, height;
 	private LinkedList[] vertices;
 
